@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @store_item.name %>
+</p>
+
+<p>
+  <strong>Store type:</strong>
+  <%= @store_item.store_type %>
+</p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @store_item.store %>
+</p>
+
+<p>
+  <strong>Store category:</strong>
+  <%= @store_item.store_category %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @store_item.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @store_item.quantity %>
+</p>
+
+<p>
+  <strong>Tax:</strong>
+  <%= @store_item.tax %>
+</p>
+
+<%= link_to 'Edit', edit_store_item_path(@store_item) %> |
+<%= link_to 'Back', store_items_path %>

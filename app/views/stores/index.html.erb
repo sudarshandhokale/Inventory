@@ -1,0 +1,29 @@
+<h1>store</h1>
+
+<div class="form"><%= render 'form' %></div>
+
+<h1>Listing stores</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sr.No.</th>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Created At</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% @stores.each_with_index do |store, i| %>
+	  <tr>
+		<td><%= i+1 %></td>
+		<td><%= store.name %></td>
+		<td><%= store.code %></td>
+		<td><%= store.created_at.to_date %></td>
+		<td><%= link_to 'Edit', edit_store_path(store), remote: true %>&nbsp;&nbsp;
+			<%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+   </tbody>
+</table>

@@ -1,0 +1,10 @@
+<%= bootstrap_form_for(@store_item) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.select :store_type_id, @store[0], prompt: true %>
+  <%= f.select :store_id, @store[1], prompt: true %>
+  <%= f.select :store_category_id, @store[2], prompt: true %>
+  <%= f.text_field :price %>
+  <%= f.number_field :quantity %>
+  <%= f.text_field :tax %>
+  <%= f.submit %>
+<% end %>
