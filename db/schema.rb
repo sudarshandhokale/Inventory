@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150121182643) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "store_categories", force: true do |t|
     t.string   "name"
     t.string   "code"
@@ -25,33 +22,26 @@ ActiveRecord::Schema.define(version: 20150121182643) do
 
   create_table "store_items", force: true do |t|
     t.string   "name"
-    t.integer  "store_type_id"
-    t.integer  "store_id"
-    t.integer  "store_category_id"
-    t.decimal  "price"
+    t.string   "company"
+    t.string   "quality"
     t.integer  "quantity"
-    t.decimal  "tax"
+    t.decimal  "price",      precision: 10, scale: 0
+    t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "store_items", ["store_category_id"], name: "index_store_items_on_store_category_id", using: :btree
   add_index "store_items", ["store_id"], name: "index_store_items_on_store_id", using: :btree
-  add_index "store_items", ["store_type_id"], name: "index_store_items_on_store_type_id", using: :btree
-
-  create_table "store_types", force: true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "stores", force: true do |t|
     t.string   "name"
     t.string   "code"
+    t.integer  "store_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "stores", ["store_category_id"], name: "index_stores_on_store_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -62,8 +52,8 @@ ActiveRecord::Schema.define(version: 20150121182643) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.integer  "current_sign_in_ip"
+    t.integer  "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

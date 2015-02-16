@@ -16,6 +16,14 @@
 //= require dataTables/jquery.dataTables
 //= require_tree .
 
-$(document).ready(function() {
-    $('.table').dataTable();
-  } );
+var ready;
+ready = function(){
+  $('.table').dataTable();
+}
+$(document).ready(ready);
+$(document).on('page:load',ready);
+
+function change_store(){
+	var a={id: $('#category_id').val()};
+	$.get('/store_items/store',a,function(response){});
+}

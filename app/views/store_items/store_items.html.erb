@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Store Items</title>
+</head>
+<body>
+	<h3 align="center">Store Items</h3>
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>Sr.No.</th>
+				<th>Name</th>
+				<th>Company</th>
+				<th>Quality</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Store</th>
+				<th>Store Category</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @store_items.each_with_index do |si, i|%>
+			<tr>
+				<td><%= i+1 %></td>
+				<td><%= si.name %></td>
+				<td><%= si.company %></td>
+				<td><%= si.quality %></td>
+				<td><%= si.quantity %></td>
+				<td><%= si.price %></td>
+				<td><%= si.store.name %></td>
+				<td><%= si.store.store_category.name %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</body>
+</html>

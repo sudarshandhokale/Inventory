@@ -3,7 +3,7 @@ class CreateStores < ActiveRecord::Migration
     create_table :stores do |t|
       t.string :name
       t.string :code
-
+      t.references :store_category, index: true
       t.timestamps
     end
   end

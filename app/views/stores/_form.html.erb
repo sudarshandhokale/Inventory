@@ -1,5 +1,6 @@
 <%= bootstrap_form_for(@store) do |f| %>
   <%= f.text_field :name %>
   <%= f.text_field :code %>
+  <%= f.select :store_category_id, @store_categories, prompt: true %>
   <%= f.submit %>
 <% end %>

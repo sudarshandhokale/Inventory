@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Store</title>
+</head>
+<body>
+	<h3 align="center">Store</h3>
+	<h4 align="center"><%= @store.name%> (<%= @store.code %>)</h4>
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>Sr.No.</th>
+				<th>Name</th>
+				<th>Company</th>
+				<th>Quality</th>
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @store.store_items.each_with_index do |si, i|%>
+			<tr>
+				<td><%= i+1 %></td>
+				<td><%= si.name %></td>
+				<td><%= si.company %></td>
+				<td><%= si.quality %></td>
+				<td><%= si.quantity %></td>
+				<td><%= si.price %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</body>
+</html>

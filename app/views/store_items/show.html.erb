@@ -1,28 +1,21 @@
-<p id="notice"><%= notice %></p>
-
+<div class="row">
+  <div class="col-md-1">
+  <%= link_to 'Pdf', store_item_store_item_path(@store_item,format: 'pdf'), target: '_blank'%>
+  </div>
+</div>
 <p>
   <strong>Name:</strong>
   <%= @store_item.name %>
 </p>
 
 <p>
-  <strong>Store type:</strong>
-  <%= @store_item.store_type %>
+  <strong>Company:</strong>
+  <%= @store_item.company%>
 </p>
 
 <p>
-  <strong>Store:</strong>
-  <%= @store_item.store %>
-</p>
-
-<p>
-  <strong>Store category:</strong>
-  <%= @store_item.store_category %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @store_item.price %>
+  <strong>Quality:</strong>
+  <%= @store_item.quality %>
 </p>
 
 <p>
@@ -31,9 +24,16 @@
 </p>
 
 <p>
-  <strong>Tax:</strong>
-  <%= @store_item.tax %>
+  <strong>Price:</strong>
+  <%= @store_item.price %>
 </p>
 
-<%= link_to 'Edit', edit_store_item_path(@store_item) %> |
-<%= link_to 'Back', store_items_path %>
+<p>
+  <strong>Store:</strong>
+  <%= @store_item.store.name %>
+</p>
+
+<p>
+  <strong>Store category:</strong>
+  <%= @store_item.store.store_category.name %>
+</p>

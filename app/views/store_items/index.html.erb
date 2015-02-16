@@ -1,20 +1,27 @@
-<h1>store item</h1>
-
+<div class="row">
+<div class="col-md-1">
+<%= link_to 'Pdf', store_items_store_items_path(format: 'pdf'), target: '_blank'%>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-2">
+<h3>store item</h3>
 <div class="form"><%= render 'form' %></div>
-
-<h1>Listing store_items</h1>
-
+</div>
+<div class="col-md-7">
+<h3>Listing store_items</h3>
 <table class="table">
   <thead>
     <tr>
       <th>Sr.No.</th>
       <th>Name</th>
-      <th>Store type</th>
-      <th>Store</th>
-      <th>Store category</th>
-      <th>Price</th>
+      <th>Company</th>
+      <th>Quality</th>
       <th>Quantity</th>
-      <th>Tax</th>
+      <th>Price</th>
+      <th>Store category</th>
+      <th>Store</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -24,14 +31,16 @@
       <tr>
         <td><%= i+1 %></td>
         <td><%= store_item.name %></td>
-        <td><%= store_item.store_type_name %></td>
-        <td><%= store_item.store_name %></td>
-        <td><%= store_item.store_category_name %></td>
-        <td><%= store_item.price %></td>
+        <td><%= store_item.company %></td>
+        <td><%= store_item.quality %></td>
         <td><%= store_item.quantity %></td>
-        <td><%= store_item.tax %></td>
-        <td><%= link_to 'Edit', edit_store_item_path(store_item), remote: true %>&nbsp;&nbsp;<%= link_to 'Destroy', store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= store_item.price %></td>
+        <td><%= store_item.store.store_category.name %></td>
+        <td><%= store_item.store.name %></td>
+        <td><%= link_to 'Show', store_item_path(store_item)%>&nbsp;&nbsp;<%= link_to 'Edit', edit_store_item_path(store_item), remote: true %>&nbsp;&nbsp;<%= link_to 'Destroy', store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>

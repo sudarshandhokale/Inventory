@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Store Categories</title>
+</head>
+<body>
+	<h3 align="center">Store Categories</h3>
+	<hr>
+	<% @store_categories.each do |sc|%>
+	<table align="center">
+		<tr><td>Store Category: </td><td><%= sc.name %></td></tr>
+		<tr><td>Code: </td><td><%= sc.code %></td></tr>
+	</table>
+	<% sc.stores.each do |s|%>
+	<table>
+		<tr><td>Store: </td><td><%= s.name %></td></tr>
+		<tr><td>Code: </td><td><%= s.code %></td></tr>
+	</table>
+	<table>
+		<thead>
+			<tr>
+				<th>Sr.No.</th>
+				<th>Name</th>
+				<th>Company</th>
+				<th>Quality</th>
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% s.store_items.each_with_index do |si, i|%>
+			<tr>
+				<td><%= i+1 %></td>
+				<td><%= si.name %></td>
+				<td><%= si.company %></td>
+				<td><%= si.quality %></td>
+				<td><%= si.quantity %></td>
+				<td><%= si.price %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<hr>
+    <br/><br/>
+	<%end%>
+	<br/><br/>
+	<%end%>
+</body>
+</html>

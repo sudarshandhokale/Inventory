@@ -1,14 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-md-1">
+	<%= link_to 'Pdf', store_store_path(@store,format: 'pdf'), target: '_blank'%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-3">
+		<table class="table">
+			<tr><td>Store Category: </td>
+			<td><%= @store.store_category.name %></td>
+			<tr><td>Code: </td>
+			<td><%= @store.store_category.code %></td>
+			<tr><td>Store: </td><td><%= @store.name %></td></tr>
+			<tr><td>Code: </td><td><%= @store.code %></td></tr>
+		</table>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-8">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Sr.No.</th>
+					<th>Name</th>
+					<th>Company</th>
+					<th>Quality</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
 
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @store.code %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+			<tbody>
+				<% @store.store_items.each_with_index do |si, i|%>
+				<tr>
+					<td><%= i+1 %></td>
+					<td><%= si.name %></td>
+					<td><%= si.company %></td>
+					<td><%= si.quality %></td>
+					<td><%= si.quantity %></td>
+					<td><%= si.price %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

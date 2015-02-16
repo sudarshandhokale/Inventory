@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Store Item</title>
+</head>
+<body>
+	<h3 align="center">Store Item</h3>
+	<h4 align="center"><%= @store_item.name%> (<%= @store_item.company %>)</h4>
+	<hr>
+	<p>
+		<strong>Name:</strong>
+		<%= @store_item.name %>
+	</p>
+
+	<p>
+		<strong>Company:</strong>
+		<%= @store_item.company%>
+	</p>
+
+	<p>
+		<strong>Quality:</strong>
+		<%= @store_item.quality %>
+	</p>
+
+	<p>
+		<strong>Quantity:</strong>
+		<%= @store_item.quantity %>
+	</p>
+
+	<p>
+		<strong>Price:</strong>
+		<%= @store_item.price %>
+	</p>
+
+	<p>
+		<strong>Store:</strong>
+		<%= @store_item.store.name %>
+	</p>
+
+	<p>
+		<strong>Store category:</strong>
+		<%= @store_item.store.store_category.name %>
+	</p>
+</body>
+</html>
