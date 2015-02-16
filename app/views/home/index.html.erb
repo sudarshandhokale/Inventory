@@ -1,3 +1,79 @@
-<p><%= link_to 'Store Category', store_categories_path%></p>
-<p><%= link_to 'Store', stores_path%></p>
-<p><%= link_to 'Store Items', store_items_path%></p>
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li class="active">
+				<i class="fa fa-dashboard"></i> Dashboard
+			</li>
+		</ol>
+	</div>
+</div>
+
+<div class="row" style="margin-top:50px">
+	<div class="col-md-1"></div>
+	<div class="col-lg-3 col-md-6">
+		<div class="panel panel-green">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-xs-3">
+						<i class="fa fa-tasks fa-5x"></i>
+					</div>
+					<div class="col-xs-9 text-right">
+						<div class="huge"><%= @count[0]%></div>
+						<div>Store Category</div>
+					</div>
+				</div>
+			</div>
+			<%= link_to store_categories_path do %>
+				<div class="panel-footer">
+					<span class="pull-left">View Details</span>
+					<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+					<div class="clearfix"></div>
+				</div>
+			<%end%>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-6">
+		<div class="panel panel-yellow">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-xs-3">
+						<i class="fa fa-shopping-cart fa-5x"></i>
+					</div>
+					<div class="col-xs-9 text-right">
+						<div class="huge"><%= @count[1]%></div>
+						<div>Store</div>
+					</div>
+				</div>
+			</div>
+			<%= link_to stores_path do %>
+				<div class="panel-footer">
+					<span class="pull-left">View Details</span>
+					<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+					<div class="clearfix"></div>
+				</div>
+			<%end%>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-6">
+		<div class="panel panel-red">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-xs-3">
+						<i class="fa fa-support fa-5x"></i>
+					</div>
+					<div class="col-xs-9 text-right">
+						<div class="huge"><%= @count[2]%></div>
+						<div>Store Item</div>
+					</div>
+				</div>
+			</div>
+			<%= link_to store_items_path do %>
+				<div class="panel-footer">
+					<span class="pull-left">View Details</span>
+					<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+					<div class="clearfix"></div>
+				</div>
+			<%end%>
+		</div>
+	</div>
+</div>

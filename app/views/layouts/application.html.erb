@@ -1,17 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Inventory</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Inventory</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%if user_signed_in? %>
-	<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-<%end%>
-<%= yield %>
+<body>	
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				<%= button_tag(class: "navbar-toggle", :'data-toggle'=>"collapse", :'data-target'=>".navbar-ex1-collapse") do %>
+				<%= content_tag(:span, 'Toggle navigation', class: "sr-only") %>
+				<%= content_tag(:span, '', class: "icon-bar") %>
+				<%= content_tag(:span, '', class: "icon-bar") %>
+				<%= content_tag(:span, '', class: "icon-bar") %>
+				<%end%>
+				<a class="navbar-brand">INVENTORY</a>
+			</div>
+		    <div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-right top-nav">
+				<% if user_signed_in? %>
+				<li>
+					<%= link_to home_index_path do %><i class="fa fa-fw fa-dashboard"></i> Dashboard<%end%>
+				</li>
+				<li>
+					<%= link_to store_categories_path do %><i class="fa fa-fw fa-tasks"></i> Store Category<%end%>
+				</li>
+				<li>
+					<%= link_to stores_path do %><i class="fa fa-fw fa-shopping-cart"></i> Store<%end%>
+				</li>
+				<li>
+					<%= link_to store_items_path do %><i class="fa fa-fw fa-support"></i> Store Items<%end%>
+				</li>
+				<li class="dropdown">
+					<%= link_to '#', class: 'dropdown-toggle', :'data-toggle'=> 'dropdown' do %>
+					<i class="fa fa-user"></i> <%= current_user.email %> <b class="caret"></b>
+					<%end%>
+					<ul class="dropdown-menu">
+						<li>
+							<%= link_to edit_user_registration_path do %><i class="fa fa-fw fa-user"></i> Edit Profile<%end%>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-fw fa-power-off"></i> Log Out<%end%>
+						</li>
+					</ul>
+				</li>
+				<%end%>
+			</ul>
+			</div>
+		</nav>
+		<div class="row">
+			<div class="col-md-12" align="center">
+				<% if notice %>
+				<div class="alert alert-success alert-dismissable">
+					<i><%= notice %></i>
+				</div>
+				<% end %>
+				<% if alert %>
+				<div class="alert alert-danger alert-dismissable">
+					<i><%= alert %></i>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<%= yield %>
+	
 </body>
 </html>

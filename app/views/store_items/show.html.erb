@@ -1,39 +1,62 @@
 <div class="row">
-  <div class="col-md-1">
-  <%= link_to 'Pdf', store_item_store_item_path(@store_item,format: 'pdf'), target: '_blank'%>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to home_index_path do %><i class="fa fa-dashboard"></i> Dashboard<%end%>
+      </li>
+      <li>
+        <%= link_to store_items_path do %><i class="fa fa-support"></i> Store Item<%end%>
+      </li>
+      <li class="active">
+        <i class="fa fa-desktop"></i> Show
+      </li>
+    </ol>
   </div>
 </div>
-<p>
-  <strong>Name:</strong>
-  <%= @store_item.name %>
-</p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @store_item.company%>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>Name:</th>
+          <td><%= @store_item.name %></td>
+        </tr>
 
-<p>
-  <strong>Quality:</strong>
-  <%= @store_item.quality %>
-</p>
+        <tr>
+          <th>Company:</th>
+          <td><%= @store_item.company%></td>
+        </tr>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @store_item.quantity %>
-</p>
+        <tr>
+          <th>Quality:</th>
+          <td><%= @store_item.quality %></td>
+        </tr>
 
-<p>
-  <strong>Price:</strong>
-  <%= @store_item.price %>
-</p>
+        <tr>
+          <th>Quantity:</th>
+          <td><%= @store_item.quantity %></td>
+        </tr>
 
-<p>
-  <strong>Store:</strong>
-  <%= @store_item.store.name %>
-</p>
+        <tr>
+          <th>Price:</th>
+          <td><%= @store_item.price %></td>
+        </tr>
 
-<p>
-  <strong>Store category:</strong>
-  <%= @store_item.store.store_category.name %>
-</p>
+        <tr>
+          <th>Store:</th>
+          <td><%= @store_item.store.name %></td>
+        </tr>
+
+        <tr>
+          <th>Store category:</th>
+          <td><%= @store_item.store.store_category.name %></td>
+        </tr>
+      </table>
+    </div>
+    <br/>
+    <div>
+      <%= link_to 'Download Pdf', store_item_store_item_path(@store_item,format: 'pdf'), target: '_blank', class: 'btn btn-success'%>
+    </div>
+  </div>
+</div>

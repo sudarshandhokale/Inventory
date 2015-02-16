@@ -1,46 +1,56 @@
 <div class="row">
-<div class="col-md-1">
-<%= link_to 'Pdf', store_items_store_items_path(format: 'pdf'), target: '_blank'%>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to home_index_path do %><i class="fa fa-dashboard"></i> Dashboard<%end%>
+      </li>
+      <li class="active">
+        <i class="fa fa-support"></i> Store Item
+      </li>
+    </ol>
+  </div>
 </div>
-</div>
-<div class="row">
-<div class="col-md-1"></div>
-<div class="col-md-2">
-<h3>store item</h3>
-<div class="form"><%= render 'form' %></div>
-</div>
-<div class="col-md-7">
-<h3>Listing store_items</h3>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Sr.No.</th>
-      <th>Name</th>
-      <th>Company</th>
-      <th>Quality</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Store category</th>
-      <th>Store</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @store_items.each_with_index do |store_item, i| %>
-      <tr>
-        <td><%= i+1 %></td>
-        <td><%= store_item.name %></td>
-        <td><%= store_item.company %></td>
-        <td><%= store_item.quality %></td>
-        <td><%= store_item.quantity %></td>
-        <td><%= store_item.price %></td>
-        <td><%= store_item.store.store_category.name %></td>
-        <td><%= store_item.store.name %></td>
-        <td><%= link_to 'Show', store_item_path(store_item)%>&nbsp;&nbsp;<%= link_to 'Edit', edit_store_item_path(store_item), remote: true %>&nbsp;&nbsp;<%= link_to 'Destroy', store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="form"><%= render 'form' %></div>
+  </div>
+  <div class="col-md-9">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Sr.No.</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Quality</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Store category</th>
+            <th>Store</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @store_items.each_with_index do |store_item, i| %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= store_item.name %></td>
+            <td><%= store_item.company %></td>
+            <td><%= store_item.quality %></td>
+            <td><%= store_item.quantity %></td>
+            <td><%= store_item.price %></td>
+            <td><%= store_item.store.store_category.name %></td>
+            <td><%= store_item.store.name %></td>
+            <td><%= link_to store_item_path(store_item), class: 'btn btn-show btn-xs' do %><i class="fa fa-fw fa-desktop"></i> Show<%end%>&nbsp;&nbsp;<%= link_to edit_store_item_path(store_item), class: 'btn btn-success btn-xs', remote: true do %><i class="fa fa-fw fa-pencil"></i> Edit<%end%>&nbsp;&nbsp;<%= link_to store_item, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger btn-xs' do %><i class="fa fa-fw fa-trash-o"></i> Delete<%end%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <%= link_to 'Download Pdf', store_items_store_items_path(format: 'pdf'), target: '_blank', class: 'btn btn-success'%>
+    </div>
+  </div>
 </div>
