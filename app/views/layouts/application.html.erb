@@ -7,17 +7,18 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>	
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="navbar-header">
-				<%= button_tag(class: "navbar-toggle", :'data-toggle'=>"collapse", :'data-target'=>".navbar-ex1-collapse") do %>
-				<%= content_tag(:span, 'Toggle navigation', class: "sr-only") %>
-				<%= content_tag(:span, '', class: "icon-bar") %>
-				<%= content_tag(:span, '', class: "icon-bar") %>
-				<%= content_tag(:span, '', class: "icon-bar") %>
-				<%end%>
-				<a class="navbar-brand">INVENTORY</a>
-			</div>
-		    <div class="collapse navbar-collapse navbar-ex1-collapse">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+			<%= button_tag(class: "navbar-toggle", :'data-toggle'=>"collapse", :'data-target'=>".navbar-ex1-collapse") do %>
+			<%= content_tag(:span, 'Toggle navigation', class: "sr-only") %>
+			<%= content_tag(:span, '', class: "icon-bar") %>
+			<%= content_tag(:span, '', class: "icon-bar") %>
+			<%= content_tag(:span, '', class: "icon-bar") %>
+			<%end%>
+			<%= link_to home_index_path do %><%= image_tag 'logoA2.png', width:'50px' %><%end%>
+			<a class="navbar-brand">INVENTORY</a></div>
+		</div>
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-right top-nav">
 				<% if user_signed_in? %>
 				<li>
@@ -45,23 +46,23 @@
 				</li>
 				<%end%>
 			</ul>
-			</div>
-		</nav>
-		<div class="row">
-			<div class="col-md-12" align="center">
-				<% if notice %>
-				<div class="alert alert-success alert-dismissable">
-					<i><%= notice %></i>
-				</div>
-				<% end %>
-				<% if alert %>
-				<div class="alert alert-danger alert-dismissable">
-					<i><%= alert %></i>
-				</div>
-				<% end %>
-			</div>
 		</div>
-		<%= yield %>
+	</nav>
+	<div class="row">
+		<div class="col-md-12" align="center">
+			<% if notice %>
+			<div class="alert alert-success alert-dismissable">
+				<i><%= notice %></i>
+			</div>
+			<% end %>
+			<% if alert %>
+			<div class="alert alert-danger alert-dismissable">
+				<i><%= alert %></i>
+			</div>
+			<% end %>
+		</div>
+	</div>
+	<%= yield %>
 	
 </body>
 </html>
