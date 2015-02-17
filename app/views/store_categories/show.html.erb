@@ -17,7 +17,7 @@
 <div class="row">
 	<div class="col-md-4">
 		<table>
-			<tr><th>Store Category: </th><td><%= @store_category.name %></td>
+			<tr><th>Store Category: </th><td><%= @store_category.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<th>Code: </th><td><%= @store_category.code %></td>
 			</tr>
 		</table>
@@ -28,7 +28,7 @@
 <div class="row">
 	<div class="col-md-4">
 		<table>
-			<tr><th>Store: </th><td><%= s.name %></td>
+			<tr><th>Store: </th><td><%= s.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<th>Code: </th><td><%= s.code %></td>
 			</tr>
 		</table>
@@ -46,6 +46,7 @@
 						<th>Company</th>
 						<th>Quality</th>
 						<th>Quantity</th>
+						<th>Dimension</th>
 						<th>Price</th>
 					</tr>
 				</thead>
@@ -57,7 +58,8 @@
 						<td><%= si.company %></td>
 						<td><%= si.quality %></td>
 						<td><%= si.quantity %></td>
-						<td><%= si.price %></td>
+						<td><%= si.dimension %> cm</td>
+						<td><%= si.price %> <%= si.currency%></td>
 					</tr>
 					<% end %>
 				</tbody>

@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: Inventory_production
-  username: Inventory
-  password: <%= ENV['Inventory_DATABASE_PASSWORD'] %>
+  username: root
+  password: root

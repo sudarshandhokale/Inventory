@@ -58,6 +58,6 @@ class StoreItemsController < ApplicationController
 
   def store_item_params
     params.require(:store_item).permit(:name, :company, :quality\
-      , :store_id, :quantity, :price)
+      , :store_id, :quantity, :price, :dimension, :currency, :image)
   end
 end

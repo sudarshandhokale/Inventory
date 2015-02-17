@@ -39,8 +39,13 @@
         </tr>
 
         <tr>
+          <th>Dimension:</th>
+          <td><%= @store_item.dimension %> cm</td>
+        </tr>
+
+        <tr>
           <th>Price:</th>
-          <td><%= @store_item.price %></td>
+          <td><%= @store_item.price %> <%= @store_item.currency%></td>
         </tr>
 
         <tr>
@@ -58,5 +63,10 @@
     <div>
       <%= link_to 'Download Pdf', store_item_store_item_path(@store_item,format: 'pdf'), target: '_blank', class: 'btn btn-success'%>
     </div>
+  </div>
+  <div class="col-md-8">
+    <% unless @store_item.image.blank? %>
+      <%= image_tag(@store_item.image, width: '800px') %>
+    <% end %>
   </div>
 </div>

@@ -25,6 +25,7 @@
             <th>Company</th>
             <th>Quality</th>
             <th>Quantity</th>
+            <th>Dimension</th>
             <th>Price</th>
             <th>Store category</th>
             <th>Store</th>
@@ -40,10 +41,11 @@
             <td><%= store_item.company %></td>
             <td><%= store_item.quality %></td>
             <td><%= store_item.quantity %></td>
-            <td><%= store_item.price %></td>
+            <td><%= store_item.dimension %> cm</td>
+            <td><%= store_item.price %> <%= store_item.currency %></td>
             <td><%= store_item.store.store_category.name %></td>
             <td><%= store_item.store.name %></td>
-            <td><%= link_to store_item_path(store_item), class: 'btn btn-show btn-xs' do %><i class="fa fa-fw fa-desktop"></i> Show<%end%>&nbsp;&nbsp;<%= link_to edit_store_item_path(store_item), class: 'btn btn-success btn-xs', remote: true do %><i class="fa fa-fw fa-pencil"></i> Edit<%end%>&nbsp;&nbsp;<%= link_to store_item, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger btn-xs' do %><i class="fa fa-fw fa-trash-o"></i> Delete<%end%></td>
+            <td><%= link_to store_item_path(store_item), class: 'btn btn-show btn-xs' do %><i class="fa fa-fw fa-desktop"></i><%end%>&nbsp;&nbsp;<%= link_to edit_store_item_path(store_item), class: 'btn btn-success btn-xs', remote: true do %><i class="fa fa-fw fa-pencil"></i><%end%>&nbsp;&nbsp;<%= link_to store_item, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger btn-xs' do %><i class="fa fa-fw fa-trash-o"></i><%end%></td>
           </tr>
           <% end %>
         </tbody>

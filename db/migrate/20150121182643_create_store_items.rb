@@ -6,7 +6,10 @@ class CreateStoreItems < ActiveRecord::Migration
       t.string :quality
       t.integer :quantity
       t.decimal :price
+      t.string :currency
       t.references :store, index: true
+      t.attachment :image
+      t.decimal :dimension
       t.timestamps
     end
   end

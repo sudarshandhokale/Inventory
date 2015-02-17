@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Inventory</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
@@ -20,9 +20,6 @@
 		    <div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-right top-nav">
 				<% if user_signed_in? %>
-				<li>
-					<%= link_to home_index_path do %><i class="fa fa-fw fa-dashboard"></i> Dashboard<%end%>
-				</li>
 				<li>
 					<%= link_to store_categories_path do %><i class="fa fa-fw fa-tasks"></i> Store Category<%end%>
 				</li>

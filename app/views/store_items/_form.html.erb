@@ -1,11 +1,20 @@
 <%= bootstrap_form_for(@store_item) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :company %>
-  <%= f.text_field :quality %>
-  <%= f.number_field :quantity %>
-  <%= f.text_field :price %>
-  <%= label_tag :store_category%>
-  <%= select :category, :id, @store[0], {prompt: true}, {class: 'form-control', onchange:"change_store();", required: true} %>
-  <div id="store"><%= render 'store' %></div><br/>
-  <%= f.submit %>
+<%= f.text_field :name %>
+<%= f.text_field :company %>
+<%= f.text_field :quality %>
+<%= f.number_field :quantity %>
+<%= f.text_field :dimension ,placeholder:'dimension in cm'%>
+<div class="row">
+	<div class="col-md-8">
+		<%= f.text_field :price %>
+	</div>
+	<div class="col-md-4">
+		<%= f.select :currency, ['Rs', 'Bhd'] %>
+	</div>
+</div>
+<%= label_tag :store_category%>
+<%= select :category, :id, @store[0], {prompt: true}, {class: 'form-control', onchange:"change_store();", required: true} %>
+<div id="store"><%= render 'store' %></div><br/>
+<%= f.file_field :image %>
+<%= f.submit %>
 <% end %>

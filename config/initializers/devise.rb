@@ -50,4 +50,5 @@ Devise.setup do |config|
   # end
   # config.router_name = :my_engine
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.secret_key = '9cd3cbe0f146744f83d35dd3b4426af9bc2abe00dc97c42579deac38107c7f66ad79b381b13078aa1423403528dadedf25d7724e57bb07c76450146a9dc3c95f'
 end
