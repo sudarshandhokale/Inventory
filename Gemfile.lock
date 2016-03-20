@@ -73,14 +73,17 @@ GEM
     mime-types (2.4.3)
     minitest (5.5.1)
     multi_json (1.10.1)
-    mysql2 (0.3.17)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    passenger (5.0.6)
+      rack
+      rake (>= 0.8.1)
     pdfkit (0.6.2)
+    pg (0.18.4)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -156,9 +159,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-datatables-rails (~> 2.2.3)
   jquery-rails
-  mysql2
   paperclip
+  passenger
   pdfkit
+  pg
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150121182643) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "store_categories", force: true do |t|
     t.string   "name"
     t.string   "code"
@@ -25,14 +28,14 @@ ActiveRecord::Schema.define(version: 20150121182643) do
     t.string   "company"
     t.string   "quality"
     t.integer  "quantity"
-    t.decimal  "price",              precision: 10, scale: 0
+    t.decimal  "price"
     t.string   "currency"
     t.integer  "store_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.decimal  "dimension",          precision: 10, scale: 0
+    t.decimal  "dimension"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
